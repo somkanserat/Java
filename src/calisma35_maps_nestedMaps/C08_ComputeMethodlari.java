@@ -1,0 +1,85 @@
+package calisma35_maps_nestedMaps;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class C08_ComputeMethodlari {
+
+    public static void main(String[] args) {
+
+        Map<String,Integer> harfler = new TreeMap<>();
+
+        harfler.put("F",40);
+        harfler.put("M",50);
+        harfler.put("Z",10);
+        harfler.put("T",25);
+        harfler.put("X",5);
+
+        System.out.println(harfler); // {F=40, M=50, T=25, X=5, Z=10}
+
+        // F'nin değerini 10 azalt
+
+        int eskiDeger = harfler.get("F");
+        harfler.put("F",eskiDeger-10);
+        System.out.println(harfler);// {F=30, M=50, T=25, X=5, Z=10}
+
+        // eğer map'te X varsa değerini 40 yapın
+
+        if (harfler.containsKey("X")){
+
+            harfler.put("X",40);
+        }
+        System.out.println(harfler); // {F=30, M=50, T=25, X=40, Z=10}
+
+        // eğer map'te Y varsa değerini 40 yapın
+
+        if (harfler.containsKey("Y")){
+
+            harfler.put("Y",40);
+        }
+        System.out.println(harfler); // {F=30, M=50, T=25, X=40, Z=10}
+
+        // eğer map'te Z yoksa, değeri 15 olarak ekleyin
+
+        if (! harfler.containsKey("Z") ){
+
+            harfler.put("Z",15);
+        }
+        System.out.println(harfler); // {F=30, M=50, T=25, X=40, Z=10}
+
+        // eğer map'te Q yoksa, değeri 15 olarak ekleyin
+
+        if (! harfler.containsKey("Q") ){
+
+            harfler.put("Q",15);
+        }
+        System.out.println(harfler); // {F=30, M=50, Q=15, T=25, X=40, Z=10}
+
+
+        //******JAVA BU İŞLEMLER İÇİN HAZIR METOTLAR OLUŞTURMUŞTUR*****
+
+        // eğer map'te R yoksa, değeri 12 olarak ekleyin
+
+        harfler.putIfAbsent("R",12);
+        System.out.println(harfler); // {F=30, M=50, Q=15, R=12, T=25, X=40, Z=10}
+
+        // map'de M varsa değerini 2 katına çıkarın
+
+        harfler.computeIfPresent("M",(k,v) -> v*2);
+        System.out.println(harfler); // {F=30, M=100, Q=15, R=12, T=25, X=40, Z=10}
+
+        // map'de S varsa değerini 10 arttır
+
+        harfler.computeIfPresent("S",(k,v) -> v*2);
+        System.out.println(harfler); // {F=30, M=100, Q=15, R=12, T=25, X=40, Z=10}
+
+        // map'de N yoksa değeri 17 olarak ekleyin
+
+        harfler.computeIfAbsent("N",v->17);
+        System.out.println(harfler); // {F=30, M=100, N=17, Q=15, R=12, T=25, X=40, Z=10}
+
+
+
+
+    }
+}
