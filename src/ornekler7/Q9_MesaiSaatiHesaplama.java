@@ -1,0 +1,54 @@
+package ornekler7;
+
+import java.util.Scanner;
+
+public class Q9_MesaiSaatiHesaplama {
+
+    /*49-----
+    Fazla mesaiyi hesaplayan bir program yazınız.
+    Yazacağınız program toplam kazancı return etsin.
+
+    Kullanıcıdan saatlik çalışma ücretini, hangi saatler arasında çalıştığını ve
+    fazla mesaiye kalırsa kazancını kaç ile katlayacağını alalım.
+
+    Daha sonra şu şekilde bir program yazınız :
+
+    Örnek :
+    saatlik çalışma ücreti : 40.0
+    hangi saat başladı : 9.0
+    hangi saat bitti : 20.0
+    mesaiyi kaçla katlayacağız : 1.8
+
+    ucretHesapla(9.0,20.0,40.0,1.8);
+
+    9 ile 17 arasında toplam çalışma 8 saat olduğu için 8 x 40 = 320
+    17 ile 20 arasında toplam çalışma 3 saat olduğu için 3 x 40 x 1.8 =  216
+
+    toplam = 536.0
+    */
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Saatlik Çalışma Ücreti:");
+        double saatlikUcret = scan.nextDouble();
+
+        System.out.print("Mesai Başlangıcı:");
+        double baslangicSaat = scan.nextDouble();
+
+        System.out.print("Mesai Bitişi:");
+        double bitisSaat = scan.nextDouble();
+
+        System.out.print("Mesaiyi Kaçla Katlayacağız:");
+        double mesaiKati = scan.nextDouble();
+
+        System.out.println(ucretHesapla(saatlikUcret,baslangicSaat,bitisSaat,mesaiKati));
+    }
+
+    public static double ucretHesapla(double saatlikUcret, double baslangicSaat, double bitisSaat, double mesaiKati){
+
+        double ucret = (17-9)*saatlikUcret+(bitisSaat-17)*saatlikUcret*mesaiKati;
+        return ucret;
+    }
+}
